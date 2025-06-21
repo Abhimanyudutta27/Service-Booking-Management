@@ -52,3 +52,11 @@ bench --site yoursite install-app service_booking_management
 # Migrate
 bench --site yoursite migrate
 ```
+
+---
+## System Info
+
+ - OS (Ubuntu 22.04)​
+ - Python version (3.10)​
+ - ERPNext/Frappe version used​ (version-15)
+ - Any tools or editors used (VS Code)
