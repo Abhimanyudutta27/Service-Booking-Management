@@ -133,6 +133,11 @@ app_license = "mit"
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
+# Migration
+# ------------
+after_migrate = [
+    "service_booking_management.setup.execute",
+]
 # Document Events
 # ---------------
 # Hook on document methods and events
