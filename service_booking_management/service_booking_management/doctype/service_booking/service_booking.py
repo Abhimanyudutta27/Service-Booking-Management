@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.email.doctype.email_template.email_template import get_email_template
 import requests
+from frappe.core.doctype.communication.email import make
 
 
 class ServiceBooking(Document):
@@ -36,6 +37,18 @@ class ServiceBooking(Document):
             subject=template.get("subject"),
             message=template.get("message"),
             delayed=False
+        )
+
+        # Showing communication log in the document
+        make(
+            doctype=self.doctype,
+            name=self.name,
+            content=template.get("message"),
+            subject=template.get("subject"),
+            sent_or_received="Sent",
+            recipients=email,
+            communication_medium="Email",
+            communication_type="Automated Message",
         )
         frappe.msgprint(
             msg="Email Notification Sent Successfully", alert=True, indicator="green")
